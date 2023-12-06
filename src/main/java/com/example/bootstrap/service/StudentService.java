@@ -27,7 +27,7 @@ public class StudentService {
     private MarksRepository marksRepository;
 
     public Student addStudent(StudentRequest studentRequest) {
-        
+
         Student student = new Student();
         student.setName(studentRequest.getName());
         student.setGender(studentRequest.getGender());
