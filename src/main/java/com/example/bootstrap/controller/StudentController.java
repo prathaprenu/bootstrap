@@ -1,6 +1,5 @@
 package com.example.bootstrap.controller;
 
-import com.example.bootstrap.exception.BadRequestException;
 import com.example.bootstrap.model.Image;
 import com.example.bootstrap.model.Marks;
 import com.example.bootstrap.model.Student;
@@ -66,6 +65,11 @@ public class StudentController {
         return ResponseEntity.ok(new ApiResponse(true,"Update student details successfully"));
     }
 
+    @GetMapping("/get_all_student")
+    public List<Student> allStudent() {
+        return studentService.findAll();
+    }
+
 
     /*------------Subject Api-----------*/
     @PostMapping("/add_subject")
@@ -91,6 +95,11 @@ public class StudentController {
         return ResponseEntity.ok(new ApiResponse(true,"Update subject details successfully"));
     }
 
+    @GetMapping("/get_all_subject")
+    public List<Subject> allSubject() {
+        return subjectService.findAll();
+    }
+
 
     /*------------Marks Api-----------*/
     @PostMapping("/add_marks")
@@ -114,6 +123,11 @@ public class StudentController {
     public ResponseEntity<?> update(@RequestParam long marksId,@RequestBody MarksRequest marksRequest) {
         marksService.updateMarksById(marksId,marksRequest);
         return ResponseEntity.ok(new ApiResponse(true,"Update marks details successfully"));
+    }
+
+    @GetMapping("/get_all_marks")
+    public List<Marks> allMarks() {
+        return marksService.findAll();
     }
 
 
@@ -154,6 +168,18 @@ public class StudentController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @DeleteMapping("/delete_image")
+    public ResponseEntity<?> deleteImage(@RequestParam long imageId) {
+        imageService.deleteImageById(imageId);
+        return ResponseEntity.ok(new ApiResponse(true,"Delete image success"));
+    }
+
+    @PutMapping("/update_image")
+    public ResponseEntity<?> updateImage(@RequestParam long imageId,@RequestBody MultipartFile file) throws IOException {
+        imageService.updateImageById(imageId,file);
+        return ResponseEntity.ok(new ApiResponse(true,"Update image successfully"));
     }
 
 }

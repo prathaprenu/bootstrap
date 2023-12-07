@@ -68,4 +68,8 @@ public class StudentService {
     public List<Subject> getAllSubjects() {
         return subjectRepository.findAll();
     }
+
+    public List<Student> findAll() {
+        return studentRepository.findAll();
+    }
 }

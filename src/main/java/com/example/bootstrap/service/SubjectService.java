@@ -38,4 +38,8 @@ public class SubjectService {
         updateSubject.setSubjectName(subjectRequest.getSubjectName());
         return subjectRepository.save(updateSubject);
     }
+
+    public List<Subject> findAll() {
+        return subjectRepository.findAll();
+    }
 }

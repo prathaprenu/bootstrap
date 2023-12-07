@@ -59,4 +59,8 @@ public class MarksService {
         return marksRepository.save(updateMarks);
 
     }
+
+    public List<Marks> findAll() {
+        return marksRepository.findAll();
+    }
 }

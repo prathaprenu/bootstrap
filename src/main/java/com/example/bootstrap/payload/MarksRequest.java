@@ -1,7 +1,5 @@
 package com.example.bootstrap.payload;
 
-import javax.validation.constraints.NotBlank;
-
 public class MarksRequest {
 
     private int marks;
