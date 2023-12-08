@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SubjectService {
@@ -23,8 +24,8 @@ public class SubjectService {
         return subjectRepository.save(subject);
     }
 
-    public List<Subject> findBySubjectId() {
-        return subjectRepository.findAll();
+    public Optional<Subject> findBySubjectId(long subjectId) {
+        return subjectRepository.findById(subjectId);
     }
 
     public void deleteSubjectById(long subjectId) {

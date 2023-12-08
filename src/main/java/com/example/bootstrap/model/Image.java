@@ -1,6 +1,5 @@
 package com.example.bootstrap.model;
 
-
 import javax.persistence.*;
 
 @Entity

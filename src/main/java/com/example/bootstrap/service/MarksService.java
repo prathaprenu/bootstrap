@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class MarksService {
 
@@ -57,7 +58,6 @@ public class MarksService {
         updateMarks.setSubject(subject);
 
         return marksRepository.save(updateMarks);
-
     }
 
     public List<Marks> findAll() {

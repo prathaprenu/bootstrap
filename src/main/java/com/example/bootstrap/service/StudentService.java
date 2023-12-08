@@ -26,6 +26,7 @@ public class StudentService {
     @Autowired
     private MarksRepository marksRepository;
 
+
     public Student addStudent(StudentRequest studentRequest) {
 
         Student student = new Student();
@@ -36,8 +37,8 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public List<Student> findByStudentId() {
-        return studentRepository.findAll();
+    public Optional<Student> findByStudentId(long studentId) {
+        return studentRepository.findById(studentId);
     }
 
     public void deleteStudentById(long studentId) {

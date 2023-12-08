@@ -8,10 +8,7 @@ import com.example.bootstrap.payload.ApiResponse;
 import com.example.bootstrap.payload.MarksRequest;
 import com.example.bootstrap.payload.StudentRequest;
 import com.example.bootstrap.payload.SubjectRequest;
-import com.example.bootstrap.service.ImageService;
-import com.example.bootstrap.service.MarksService;
-import com.example.bootstrap.service.StudentService;
-import com.example.bootstrap.service.SubjectService;
+import com.example.bootstrap.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -49,9 +46,10 @@ public class StudentController {
     }
 
     @GetMapping("/get_student")
-    public List<Student> getStudent() {
-        return studentService.findByStudentId();
+    public Optional<Student> getStudent(@RequestParam long studentId) {
+        return studentService.findByStudentId(studentId);
     }
+
 
     @DeleteMapping("/delete_student")
     public ResponseEntity<?> deleteStudent(@RequestParam long studentId) {
@@ -79,8 +77,8 @@ public class StudentController {
     }
 
     @GetMapping("/get_subject")
-    public List<Subject> getSubject() {
-        return subjectService.findBySubjectId();
+    public Optional<Subject> getSubject(@RequestParam long subjectId) {
+        return subjectService.findBySubjectId(subjectId);
     }
 
     @DeleteMapping("/delete_subject")
@@ -181,5 +179,4 @@ public class StudentController {
         imageService.updateImageById(imageId,file);
         return ResponseEntity.ok(new ApiResponse(true,"Update image successfully"));
     }
-
 }

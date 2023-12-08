@@ -14,7 +14,7 @@ public class MarksRequest {
         this.marks = marks;
     }
 
-    public long getStudent_id() {
+    public Long getStudent_id() {
         return student_id;
     }
 
@@ -22,7 +22,7 @@ public class MarksRequest {
         this.student_id = student_id;
     }
 
-    public long getSubject_id() {
+    public Long getSubject_id() {
         return subject_id;
     }
 

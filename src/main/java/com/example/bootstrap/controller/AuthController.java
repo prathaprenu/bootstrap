@@ -1,7 +1,6 @@
 package com.example.bootstrap.controller;
 
 import com.example.bootstrap.exception.BadRequestException;
-import com.example.bootstrap.model.Student;
 import com.example.bootstrap.model.User;
 import com.example.bootstrap.payload.ApiResponse;
 import com.example.bootstrap.payload.AuthResponse;
@@ -21,7 +20,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping("/auth")
